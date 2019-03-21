@@ -1,16 +1,21 @@
 fn main() {
     // cond_stuff();
 
-    let num = 5;
-    println!("Fib of {} is: {}", num, fib(5));
+    let num = 50;
+    println!("Fib of {} is: {}", num, fib(num));
 }
 
-fn fib(num: i32) -> i32 {
-    if num < 2 {
-        return num;
+fn fib(mut num: usize) -> usize {
+    let mut a = 0;
+    let mut b = 1;
+
+    for _ in 1..num {
+        let tmp = a;
+        a = b;
+        b = tmp + a;
     }
 
-    return fib(num - 1) + fib(num - 2);
+    b
 }
 
 fn cond_stuff() {
