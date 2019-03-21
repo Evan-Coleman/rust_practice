@@ -36,3 +36,8 @@
     * let a: [i32; 5] = [1, 2, 3, 4, 5];
         * Length of "a" is 5, it cannot shrink or grow
         * Type of "a" is i32, all data must match this
+
+# 3.3 - Functions
+* Function names: snake_case (all lower)
+* For a statement, there is no need for an ending semicolon
+    * fn plus_one(x: i32) -> i32 { x + 1 }
