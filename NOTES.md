@@ -41,3 +41,7 @@
 * Function names: snake_case (all lower)
 * For a statement, there is no need for an ending semicolon
     * fn plus_one(x: i32) -> i32 { x + 1 }
+
+# 3.5 - Control Flow
+* Loop can be stopped with break, or can return a value if used in a let statement
+    * break counter * 2;
