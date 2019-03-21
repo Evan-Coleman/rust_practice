@@ -6,3 +6,15 @@
 * cargo run (will rebuild automatically if changes happen)
 * cargo check (makes sure code compiles, but doesn't produce exe -- FASTER THAN BUILD)
 * cargo build --release (slower compile, faster binary)
+
+# 1.4
+* variables in Rust are immutable by default
+    * use "mut" keyword to allow mutability
+* Cargo.lock prevents upgrading dependencies without you telling it to
+* cargo doc --open
+    * builds documentation for all dependencies and opens in your browser
+* Invalid input handling
+    * .expect will crash the program
+    * changing it to a match expression can handle it without crashing
+        * { Ok(num) =>, Err(_) => continue }
+            * Ok // Err come from the Result enum type
