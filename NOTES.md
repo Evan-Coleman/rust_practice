@@ -66,3 +66,6 @@
         * This is because it forces you to handle both cases of null && !null
             * Some == !null
             * None == null
+
+# 7.2 - Modules / Scope
+* When exporting a module to a new file, the filename is the containing module and is directly accessable from "mod name;" up by use statements
