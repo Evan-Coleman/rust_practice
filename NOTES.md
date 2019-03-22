@@ -60,3 +60,9 @@
     * When you copy a string, you're making a copy of the stack allocated portion
         * Because of this, both variables will point to the same space on the heap
     * This is like a *shallow copy* in other languages, but Rust invalidates the first variable so this is just a move and not a copy
+# 6.2 - Match
+* The Option<T> type is used for something that could be null
+    * Rust doesn't use null for safety, if something CAN be null use Option
+        * This is because it forces you to handle both cases of null && !null
+            * Some == !null
+            * None == null
