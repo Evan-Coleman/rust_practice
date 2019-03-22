@@ -45,3 +45,18 @@
 # 3.5 - Control Flow
 * Loop can be stopped with break, or can return a value if used in a let statement
     * break counter * 2;
+
+# 4.1 - Ownership
+* For an item to be put on the stack, it must have a known and fixed size
+* Complex types like String live on both the stack and the heap
+    * Stack:
+        * ptr: pointer to the heap where the actual data is stored
+        * len: length of the string
+        * capacity: how much it can hold
+    * Heap:
+        * contiguous section of memory holding each char
+            * [0] = 'h', [1] = 'e', [2] = 'l', [3] = 'l', [4] = 'o'
+* A copy of these complex types isn't like a primitive type copy
+    * When you copy a string, you're making a copy of the stack allocated portion
+        * Because of this, both variables will point to the same space on the heap
+    * This is like a *shallow copy* in other languages, but Rust invalidates the first variable so this is just a move and not a copy
