@@ -103,3 +103,11 @@
 * If There's a retry-able error
     * result
 * unwrap / expeect are good for prototyping before you've decided how to handle errors
+
+# 10.2 - Traits
+* Traits are similar to interfaces in other lanuguages -- Contracts for custom types
+* A default implementation can be defined in the trait
+    * To use the default, you must specify an empty impl block of that trait on the type
+* Trait bounds can bound a function to only take in / return something that implements a certain trait
+    * pub fn notify<T: Summary>(item: T) {}
+    Trait bounds can be chained together with the "+" symbol
