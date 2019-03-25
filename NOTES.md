@@ -111,3 +111,7 @@
 * Trait bounds can bound a function to only take in / return something that implements a certain trait
     * pub fn notify<T: Summary>(item: T) {}
     Trait bounds can be chained together with the "+" symbol
+
+# 10.3 - Lifetimes
+* Syntax: 'a = hyphen + single lower-case character
+* 'static - a lifetime for things like string-literals. stored directly in the binary so is always available to the program
