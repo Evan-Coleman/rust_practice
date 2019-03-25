@@ -77,3 +77,12 @@
 * Debug print with "{:?}"
     * If it's a custom type you are debug printing, add the debu attribute above it
         * #[derive(Debug)]
+
+# 8.2 - Strings
+* str vs String
+    * String is a growable, heap-allocated data structure
+        * Useful when you want to own the string and mutate it
+    * str immutable fixed-length string in memory (heap, stack, or binary)
+        * Good for function params for read-only view of a string
+* Indexing strings "s[0]" isn't safe because some UTF-8 strings are more than 1 byte
+    * slicing can work, if you know the size of the chars you are workign with
