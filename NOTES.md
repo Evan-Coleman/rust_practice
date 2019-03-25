@@ -115,3 +115,16 @@
 # 10.3 - Lifetimes
 * Syntax: 'a = hyphen + single lower-case character
 * 'static - a lifetime for things like string-literals. stored directly in the binary so is always available to the program
+
+# 11.1 - Testing
+* Tests need annotations
+    * For the module: #[cfg(texT)] mod tests{}
+    * Each test needs: #[test]
+    * Special annotation: #[should_panic]
+        * Can add to this: #[should_panic(expected = "Panic message to expect")]
+* Macros for testing
+    * assert!(a_bool_value)
+    * assert_eq!(a,b) <- a,b must be the same to pass
+    * assert_ne!(a,b) <- a,b must be different to pass
+        * These macros can contain custom messages
+            * result = true; assert!(a_bool_value, "Custom message: {}", result);
