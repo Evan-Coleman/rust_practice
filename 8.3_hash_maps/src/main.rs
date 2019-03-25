@@ -60,6 +60,7 @@ fn other_stuff() {
     let mut map = HashMap::new();
 
     for word in text.split_whitespace() {
+    // Grab the count from the text and if it doesn't exist yet add it with a value of 0
     let count = map.entry(word).or_insert(0);
     // Deref needed to modify value
     *count += 1;
