@@ -96,3 +96,10 @@
 * Panic will crash the program out and unwind the stack before finishing
     * You can specifiy an abort only panic in your Cargo.toml file
         * Add [profile.release] panic = 'abort'
+
+# 9.3 - When to Panic vs Result
+* If the error is unrecoverable, or you don't know how to deal with it
+    * panic!
+* If There's a retry-able error
+    * result
+* unwrap / expeect are good for prototyping before you've decided how to handle errors
