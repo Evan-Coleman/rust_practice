@@ -60,6 +60,7 @@
     * When you copy a string, you're making a copy of the stack allocated portion
         * Because of this, both variables will point to the same space on the heap
     * This is like a *shallow copy* in other languages, but Rust invalidates the first variable so this is just a move and not a copy
+    
 # 6.2 - Match
 * The Option<T> type is used for something that could be null
     * Rust doesn't use null for safety, if something CAN be null use Option
@@ -86,3 +87,7 @@
         * Good for function params for read-only view of a string
 * Indexing strings "s[0]" isn't safe because some UTF-8 strings are more than 1 byte
     * slicing can work, if you know the size of the chars you are workign with
+
+# 8.3 - Hash Maps
+* By default HashMaps own both keys and values passed into them
+    * You can insert references, but they must be guaranteed to be alive as long as the hashmap is
