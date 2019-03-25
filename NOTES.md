@@ -60,7 +60,7 @@
     * When you copy a string, you're making a copy of the stack allocated portion
         * Because of this, both variables will point to the same space on the heap
     * This is like a *shallow copy* in other languages, but Rust invalidates the first variable so this is just a move and not a copy
-    
+
 # 6.2 - Match
 * The Option<T> type is used for something that could be null
     * Rust doesn't use null for safety, if something CAN be null use Option
@@ -91,3 +91,8 @@
 # 8.3 - Hash Maps
 * By default HashMaps own both keys and values passed into them
     * You can insert references, but they must be guaranteed to be alive as long as the hashmap is
+
+# 9.1 - Panic!
+* Panic will crash the program out and unwind the stack before finishing
+    * You can specifiy an abort only panic in your Cargo.toml file
+        * Add [profile.release] panic = 'abort'
