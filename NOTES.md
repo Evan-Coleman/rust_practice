@@ -69,3 +69,11 @@
 
 # 7.2 - Modules / Scope
 * When exporting a module to a new file, the filename is the containing module and is directly accessable from "mod name;" up by use statements
+
+# 8.1 - Vectors
+* To access data from a vector you can use 2 methods
+    * v[x] - will cause a panic if you try to access outside the bounds
+    * v.get(x) - Will return some(&element) or None, no panic
+* Debug print with "{:?}"
+    * If it's a custom type you are debug printing, add the debu attribute above it
+        * #[derive(Debug)]
