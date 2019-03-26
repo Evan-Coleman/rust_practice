@@ -75,7 +75,7 @@ pub fn greeting(name: &str) -> String {
 }
 
 pub fn add_two(a: i32) -> i32 {
-    a + 3
+    a + 2
 }
 
 #[derive(Debug)]

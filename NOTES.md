@@ -128,3 +128,19 @@
     * assert_ne!(a,b) <- a,b must be different to pass
         * These macros can contain custom messages
             * result = true; assert!(a_bool_value, "Custom message: {}", result);
+
+# 11.2 - Test Running
+* cargo test {name} : Runs a specific test
+* cargo test -- --ignored : Runs all tests with the ignored annotation
+    * Ignored annotation: #[ignore]
+* By default, all tests run in parallel
+    * --test-threads=1 : for tests that may have race conditions
+* cargo test -- --nocapture : Shows output from passing tests too
+
+# 11.3 - Test Organization
+* Unit testing: In src directory in each file with the code you are testing, can choose to test private functions
+    * You can test private functions by bringing the module into the scope of the test
+* Integration testing: entirely external to your library. Tests your code just as any other external code would through the public API
+    * Located in the tests folder
+* When you want some common functionality (like a setup function) put it in a /common/ folder
+    * Files in subdirectories of the tests dir do not get ran as tests
