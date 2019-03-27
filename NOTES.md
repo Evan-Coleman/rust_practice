@@ -144,3 +144,6 @@
     * Located in the tests folder
 * When you want some common functionality (like a setup function) put it in a /common/ folder
     * Files in subdirectories of the tests dir do not get ran as tests
+
+# 12.3 - CMD program
+* adding a "?" to the end of a function call will return errors from that function if there are any
