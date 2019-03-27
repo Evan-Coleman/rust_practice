@@ -156,3 +156,7 @@
         * This is not expected, we only want successful output in the file, not errors
 * the macro eprintln!() is more appropriate for writing errors to screen
     * as opposed to println!()
+
+# 13.1 - Closures
+* Basic syntax of a closure
+    * let expensive_closure = |param| { function; return_val }
