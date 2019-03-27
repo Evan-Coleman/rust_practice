@@ -147,3 +147,12 @@
 
 # 12.3 - CMD program
 * adding a "?" to the end of a function call will return errors from that function if there are any
+
+# 12.6 - Error printing
+* cargo run to poem.txt > output.txt
+    * Will create a file output.txt with the correct output of the file
+* cargo run > output.txt
+    * Will create a file output.txt error "not enough arguments"
+        * This is not expected, we only want successful output in the file, not errors
+* the macro eprintln!() is more appropriate for writing errors to screen
+    * as opposed to println!()
