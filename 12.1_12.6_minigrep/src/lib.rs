@@ -26,3 +26,38 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn new_config_too_few_args() {
+        let args = [String::from("Hello")];
+
+        let result = Config::new(&args);
+
+        assert!(result.is_err());
+
+        let args = [];
+
+        let result = Config::new(&args);
+
+        assert!(result.is_err());
+    }
+
+    #[test]
+    fn config_variations() {
+        let args = [String::from("fakepath"), String::from("livelong"), String::from("fakefile.txt")];
+        let config = Config::new(&args).unwrap();
+        assert_eq!("livelong", config.query);
+
+        let args = [String::from("fakepath"), String::from("livelong"), String::from("fakefile.txt")];
+        let config = Config::new(&args).unwrap();
+        assert!(run(config).is_err());
+
+        let args = [String::from("fakepath"), String::from("livelong"), String::from("poem.txt")];
+        let config = Config::new(&args).unwrap();
+        assert!(!run(config).is_err());
+    }
+}
