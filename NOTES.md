@@ -118,7 +118,7 @@
 
 # 11.1 - Testing
 * Tests need annotations
-    * For the module: #[cfg(texT)] mod tests{}
+    * For the module: #[cfg(test)] mod tests{}
     * Each test needs: #[test]
     * Special annotation: #[should_panic]
         * Can add to this: #[should_panic(expected = "Panic message to expect")]
@@ -162,3 +162,11 @@
     * let expensive_closure = |param| { function; return_val }
 * Build a cacher by using trait bound (Fn, FnMut, FnOnce) on the generic type to ensure a function is passed in
 * To add multiple trait bounds, use syntax: "X: Hash + Eq + Copy"
+
+# 13.2 - Iterators
+* The Iterator trait has 2 parts
+    * value: a type that you want to iterate over
+    * next: Only method you need to impl, will return a "Some(self.value)", or "None" if done
+* Iterators are lazy, meaning that nothing happens until you work on it. So, if you don't call .next() you won't get a value, the first time you do call it, you'll get the first value.
+* Maps take closures that can act on the data they are mapping!
+    * map is an iterator adaptor which is lazy, .collect() is needed to turn the result into a collection
