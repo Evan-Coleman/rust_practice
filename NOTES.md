@@ -170,3 +170,50 @@
 * Iterators are lazy, meaning that nothing happens until you work on it. So, if you don't call .next() you won't get a value, the first time you do call it, you'll get the first value.
 * Maps take closures that can act on the data they are mapping!
     * map is an iterator adaptor which is lazy, .collect() is needed to turn the result into a collection
+
+# 14.1 - Release Profiles
+* cargo has 2 main profiles: dev / release each with corresponding opt-levels in Cargo.toml
+    * Dev profile: cargo build
+        * opt-level = 0
+    * Release profile: cargo build --release
+        * opt-level = 3
+* opt-level can be from 0 to 3, and 0 compiles fastest, but the binary will run slower, opposite for 3
+
+# 14.2 - Publishing to crates.io
+* Documentation comment: "///"
+    * Generates HTML documentation
+    * Supports Markdown
+* "cargo doc" will run the rustdoc tool and puts the documentation in "target/doc" directory
+    * Automatically open in your browser after making: "cargo doc -- open"
+* Common sections
+    * Examples
+        * If your example has code in it, "cargo test" will test it!
+            * For this reason it might be good to incldue asserts in the examples
+    * Panics
+    * Errors
+    * Safety
+* "//!" comments
+    * Commonly added to crate root file "src/lib.rs", or inside modules to document the crate/module as a whole
+* Reexporting items using "pub use"
+    * This allows for a more convient public API, so other people using your code don't have to have very largely nested use statements
+* To publish crates to crates.io, you need to get an API key from them
+    * Once you have the API key: cargo login {API KEY}
+        * Stores credentials to ~/.cargo/credentials
+            * Make sure this doesn't get added to your repo!
+    * To publish you must add to the Cargo.toml file
+        * [package]
+            * name = "{UNIQUE NAME TO CRATES.IO}"
+                * Must be unique to ALL crates on the site
+            * license = "MIT"
+                * List of license names: https://spdx.org/licenses/
+                    * Multiple licenses with: "OR"
+            * version = "0.1.0"
+            * authors = ["Your Name <you@example.com>"]
+            * edition = 2018
+            * description = "Description of crate"
+        * "cargo publish"
+            * to update update version, then run again
+                * Rules: https://semver.org/
+        * Prevent others from adding a version of your crate to future projects
+            * cargo yank --vers 1.0.1
+                * cargo yank --vers 1.0.1 --undo
