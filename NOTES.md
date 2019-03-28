@@ -160,3 +160,5 @@
 # 13.1 - Closures
 * Basic syntax of a closure
     * let expensive_closure = |param| { function; return_val }
+* Build a cacher by using trait bound (Fn, FnMut, FnOnce) on the generic type to ensure a function is passed in
+* To add multiple trait bounds, use syntax: "X: Hash + Eq + Copy"
