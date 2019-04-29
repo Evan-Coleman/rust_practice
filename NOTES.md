@@ -217,3 +217,24 @@
         * Prevent others from adding a version of your crate to future projects
             * cargo yank --vers 1.0.1
                 * cargo yank --vers 1.0.1 --undo
+
+# 15.1 BOX
+* Box<T> allows you to put data on the heap instead of stack
+    * Pointer to heap remains on stack
+    * Usage scenarios
+        * Type where the size cant be known at compile time
+        * Transfer large data without copying
+        * To own a value not of a type, but which implements a specific trait
+* Recursive types
+    * cons list
+        * "to cons x onto y"
+            * construct new container instance by putting the element x at the start of this new container, followed by the container y
+        * Last item in the list contains a value called Nil
+            * This is different from "null" and "nil"
+                * null == invalid
+                * nil == absent value
+        * Generally not used, a Vec<T> usually better
+        * enum List { Cons(i32, List), Nil } -- BAD
+            * Compiler cant determine size, so wont compile
+        * enum List { Cons(i32, Box<List>), Nil } -- GOOD
+            * The box is a fixed size since it is just a pointer, will compile
